@@ -1,0 +1,38 @@
+.Customercard {
+  background-color: white;
+  padding: 50px 44px 40px 43px;
+  & + & {
+    margin-top: 22px;
+    @include mq {
+      margin-top: initial;
+      margin-left: 24px;
+    }
+  }
+  @include mq {
+    width: 324px;
+    height: 340px;
+  }
+  &-top {
+    &-text {
+      color: $color-gray;
+      line-height: 24px;
+      letter-spacing: $letter-space;
+      @include mq {
+        height: 189px;
+      }
+    }
+  }
+  &-bottom {
+    margin-top: 18px;
+    &-profile {
+      width: 48px;
+      height: 48px;
+    }
+    &-name {
+      color: $color-black;
+      margin-top: 30px;
+      margin-left: 17px;
+      letter-spacing: $letter-space;
+    }
+  }
+}

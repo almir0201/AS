@@ -1,0 +1,17 @@
+.Promises {
+  position: relative;
+  @include mq {
+    top: 35px;
+    margin-top: 110px;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mq {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: initial;
+    }
+  }
+}

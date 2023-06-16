@@ -1,0 +1,44 @@
+.Customers {
+  position: relative;
+  .container {
+    @include mq {
+      display: flex;
+    }
+  }
+  &-bg {
+    display: none;
+    @include mq {
+      display: block;
+      width: 642px;
+      position: absolute;
+      top: -454px;
+      z-index: -1;
+    }
+  }
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    @include mq {
+      margin-top: initial;
+      flex-direction: row;
+      margin-top: initial;
+    }
+  }
+  .container {
+    @include mq {
+      margin-top: 164px;
+      align-items: initial;
+      flex-direction: row;
+    }
+    & > .Title {
+      .Title-title {
+        @include mq {
+          width: 323px;
+        }
+      }
+    }
+  }
+}

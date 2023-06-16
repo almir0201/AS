@@ -1,0 +1,40 @@
+.Video {
+  position: relative;
+  background: url(/video-cover.png) no-repeat;
+  background-position: -150px;
+  background-size: cover;
+  padding-top: 112px;
+  padding-bottom: 120px;
+  margin-top: 70px;
+  height: 500px;
+  @include mq {
+    margin-top: 156px;
+    background-position: center center;
+  }
+  &-content {
+    padding-left: 20px;
+    @include mq {
+      position: absolute;
+      right: 210px;
+    }
+    &-title {
+      color: white;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 42px;
+      @include mq {
+        width: 411px;
+      }
+    }
+    &-play {
+      width: 100px;
+      height: 100px;
+      margin-top: 10px;
+      @include mq {
+        width: 140px;
+        height: 140px;
+        margin-top: initial;
+      }
+    }
+  }
+}
