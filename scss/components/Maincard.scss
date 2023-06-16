@@ -1,0 +1,103 @@
+.Maincard {
+  background-color: white;
+  height: 100%;
+  position: relative;
+  top: -80px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq {
+    height: 700px;
+  }
+  &-content {
+    padding-top: 70px;
+    @include mq {
+      margin-left: 87px;
+      margin-right: 87px;
+    }
+  }
+  &-text {
+    color: $color-gray;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    margin-top: 36px;
+  }
+
+  &-img {
+    margin-top: 54px;
+    width: 100%;
+    @include mq {
+      width: 846px;
+    }
+  }
+  &-links {
+    position: relative;
+    &:before {
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      content: 'Live';
+      position: absolute;
+      right: 13px;
+      top: 93px;
+      width: 50px;
+      height: 30px;
+      background-color: $color-green;
+      z-index: 5;
+      box-shadow: 0px 8px 16px rgba(38, 38, 38, 0.2),
+        0px 4px 8px rgba(38, 38, 38, 0.24);
+      @include mq {
+        right: 32px;
+        top: 127px;
+      }
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+    @include mq {
+      margin-top: 56px;
+    }
+  }
+  &-links-link {
+    position: relative;
+    font-size: 10px;
+    font-weight: lighter;
+    line-height: 24px;
+    letter-spacing: $letter-space;
+    color: $color-black;
+    text-align: center;
+
+    @include mq {
+      width: 212px;
+      border-bottom: 1px solid $color-gray-line;
+      font-size: 16px;
+      padding-bottom: 15px;
+    }
+    &:nth-child(1)::before {
+      display: none;
+    }
+    &:nth-child(2) {
+      color: $color-red;
+      border-bottom: 4px solid $color-red;
+    }
+    &:nth-child(4)::before {
+      background-color: $color-gray-line;
+    }
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 6px;
+      position: absolute;
+      background-color: $color-green;
+      z-index: 1;
+      right: -5px;
+      @include mq {
+        right: 27px;
+      }
+    }
+  }
+}

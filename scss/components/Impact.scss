@@ -1,0 +1,71 @@
+.Impact {
+  background: url(/impact-bg.png) no-repeat center center / cover;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  @include mq {
+    margin-top: 210px;
+    height: 608px;
+    padding-bottom: initial;
+  }
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .Title {
+      margin-top: 50px;
+      @include mq {
+        margin-top: 112px;
+      }
+      &-subject {
+        span {
+          color: $color-gray-line;
+        }
+      }
+      &-title {
+        color: white;
+        @include mq {
+          width: 411px;
+        }
+      }
+    }
+
+    &-img {
+      display: none;
+      @include mq {
+        display: block;
+        width: 498px;
+        height: 315px;
+        position: relative;
+        top: -80px;
+      }
+    }
+  }
+  &-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mq {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: initial;
+    }
+  }
+  &-bottom {
+    display: none;
+    @include mq {
+      display: flex;
+      background-color: white;
+      justify-content: space-between;
+      align-items: center;
+      padding: 43px 76px 48px 70px;
+      margin-top: 134px;
+    }
+    &-title {
+      font-size: 24px;
+      width: 562px;
+      line-height: 30px;
+      font-weight: 900;
+      color: $color-black;
+    }
+  }
+}

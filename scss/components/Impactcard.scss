@@ -1,0 +1,31 @@
+.Impactcard {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  @include mq {
+    margin-top: initial;
+  }
+  &-left {
+    &-img {
+      width: 76px;
+      height: 76px;
+    }
+  }
+  &-right {
+    margin-left: 22px;
+    &-title {
+      color: $color-red;
+      font-size: 36px;
+      line-height: 42px;
+      font-weight: 900;
+    }
+    &-description {
+      margin-top: 3px;
+      color: $color-bg;
+      letter-spacing: $letter-space;
+      line-height: 24px;
+      width: 149px;
+      margin-top: 5px;
+    }
+  }
+}
