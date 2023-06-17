@@ -13,8 +13,19 @@ datasource db {
 
 model User {
   id        Int     @id @default(autoincrement())
-  email     String  @unique
-  phone     String
-  service   String
-  problem   String
+  email     String? 
+  phone     String?
+  service   Services   @default(CHECK_ENGINE_LAMP)
+  problem   String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+enum Services {
+  CLIMA
+  BATERY_SERVICE
+  CHECK_ENGINE_LAMP
+  MAINTAINING
+  OIL_ENGINE
+  ELECTRICITY
 }

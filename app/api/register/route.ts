@@ -1,6 +1,4 @@
 import prisma from "@/lib/prisma";
-import { NextApiRequest, NextApiResponse } from "next";
-import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -13,6 +11,6 @@ export async function POST(req: Request) {
       problem,
     },
   });
-  return NextResponse.json("test");
+  return NextResponse.json(user);
 }
 

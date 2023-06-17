@@ -4,8 +4,7 @@ import Promises from "../components/Promises";
 import Video from "../components/Video";
 import Services from "../components/Services";
 import Appointment from "../components/Appointment";
-import Customers from "../components/Customers";
-import Impact from "../components/Impact";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -16,7 +15,7 @@ export default function Page() {
           <h1 className="Top-title">
           Vrhunska usluga je naš glavni motiv
           </h1>
-          <Button text="ZAKAŽITE TERMIN" />
+          <Link href="#book_an_apointment" scroll={false} className="button mb-10 mt-6">Zakažite termin</Link>
         </div>
       </div>
       <Maincard
@@ -33,18 +32,6 @@ export default function Page() {
       <Video />
       <Services />
       <Appointment />
-      {/* <Maincard
-        subject="GALLERY & LIVE STREAMS"
-        title="Check out our hard workers"
-        link1="Gallery"
-        link2="Live stream: Bay 1"
-        link3="Live stream: Bay 2"
-        link4="Live stream: Bay 3"
-        img="/gallery-pic.png"
-        offText={{ display: "none" }}
-      />
-      <Customers />
-      <Impact /> */}
     </>
   );
 };
