@@ -1,9 +1,8 @@
-import Button from "../components/Button";
-import Maincard from "../components/Maincard";
-import Promises from "../components/Promises";
-import Video from "../components/Video";
-import Services from "../components/Services";
-import Appointment from "../components/Appointment";
+import Maincard from "@/components/Maincard";
+import Promises from "@/components/Promises";
+import Video from "@/components/Video";
+import Services from "@/components/Services";
+import Appointment from "@/components/Appointment";
 import Link from "next/link";
 
 export default function Page() {

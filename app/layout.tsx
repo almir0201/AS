@@ -3,11 +3,6 @@ import "@/styles/globals.css";
 import "../scss/main.scss";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import AuthStatus from "@/components/auth-status";
-import { Suspense } from "react";
-import { getServerSession } from "next-auth";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,19 +30,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
   return (
     <html lang="en">
       <body className={inter.variable}>
-      <Header />
-        <Suspense fallback="Loading...">
-          <div className={session ? "relative pt-24" : ""}>
-          {/* @ts-expect-error Async Server Component */}
-            <AuthStatus  />
-          </div>
-        </Suspense>
         {children}
-        <Footer />
       </body>
     </html>
   );
