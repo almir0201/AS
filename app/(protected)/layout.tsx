@@ -13,8 +13,10 @@ export default async function RootLayout({
   const session = await getServerSession();
 
   return (
-    <div className="bg-red-300">
+    <div className="bg-white">
+      <div className="bg-blue-950">
       <Header />
+      </div>
       <Suspense fallback="Loading...">
         <div className={session ? "relative pt-24" : ""}>
           {/* @ts-expect-error Async Server Component */}
