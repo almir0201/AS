@@ -29,6 +29,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
     "@types/bcrypt": "^5.0.0",
     "autoprefixer": "^10.4.4",
     "eslint": "8.11.0",
