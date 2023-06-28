@@ -39,8 +39,8 @@ export default function UsersTable({ processed }: { processed: boolean; }) {
       })
     }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [`users-processed-${!processed}`] })
-      queryClient.invalidateQueries({ queryKey: [`users-processed-${processed}`] })
+      queryClient.invalidateQueries({ queryKey: [`users-processed-true`] })
+      queryClient.invalidateQueries({ queryKey: [`users-processed-false`] })
     },
   })
 
