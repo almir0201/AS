@@ -12,9 +12,9 @@ const schema = yup
   .object({
     name: yup.string().required(),
     email: yup.string().email().nullable(),
-    phone: yup.string().nullable(),
+    phone: yup.string().required(),
     service: yup.string().required(),
-    problem: yup.string().nullable(),
+    problem: yup.string().required(),
   })
   .required();
 
@@ -99,21 +99,28 @@ function Appointment() {
               }
             />
             <div className="mt-[22px] w-full md:w-[224px]">
-              <Controller
-                control={control}
-                render={({ field: { onChange, value, name, ref } }) => (
-                  <Select
-                    inputRef={ref}
-                    value={options.find((c) => c.value === value) ?? null}
-                    name={name}
-                    options={options}
-                    onChange={(selectedOption) => {
-                      onChange(selectedOption.value);
-                    }}
-                  />
-                )}
-                name="service"
-              />
+              <div className={
+                errors.service &&
+                errors.service?.message &&
+                "!border-2 !border-red-400"
+              }>
+                <Controller
+                  control={control}
+                  render={({ field: { onChange, value, name, ref } }) => (
+                    <Select
+                      instanceId='select'
+                      inputRef={ref}
+                      value={options.find((c) => c.value === value) ?? null}
+                      name={name}
+                      options={options}
+                      onChange={(selectedOption) => {
+                        onChange(selectedOption.value);
+                      }}
+                    />
+                  )}
+                  name="service"
+                />
+              </div>
             </div>
             <textarea
               {...register("problem")}
@@ -129,6 +136,7 @@ function Appointment() {
           <button className="button" type="submit" disabled={isSubmitting}>
             Zakažite termin
           </button>
+          <p className='mt-5 bold'>Ukoliko unesete netacne podatke zahtjev ce biti ignorisan</p>
         </div>
       </div>
     </form>

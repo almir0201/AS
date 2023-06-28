@@ -7,13 +7,13 @@ export default function Login() {
 
   const signInGoogle = async () => {
     signIn('google', {
-      callbackUrl: '/'
+      callbackUrl: '/admin'
     })
   }
 
   const signInGithub = async () => {
     signIn('github', {
-      callbackUrl: '/'
+      callbackUrl: '/admin'
     })
   }
   return (

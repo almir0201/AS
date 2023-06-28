@@ -1,23 +1,30 @@
 // These styles apply to every route in the application
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { getServerSession } from "next-auth";
 import { Suspense } from "react";
 import AuthStatus from "@/components/auth-status";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession();
 
   return (
     <div className="bg-white">
       <div className="bg-blue-950">
       <Header />
       </div>
-        {children}
+      <Suspense fallback="Loading...">
+        <div className={session ? "relative pt-24" : ""}>
+          {/* @ts-expect-error Async Server Component */}
+          <AuthStatus />
+        </div>
+      </Suspense>
+      {children}
+      <Footer />
     </div>
   );
 }

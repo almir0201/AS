@@ -15,7 +15,13 @@ export default async function IndexPage({
       </Text> */}
       <Card className="mt-6">
         <TableUserQueryProvider>
-          <UsersTable />
+          <h4>Neobradjeni</h4>
+          <UsersTable processed={false} />
+          <br />
+          <br />
+          <hr />
+          <h4>Obradjeni</h4>
+          <UsersTable processed={true} />
         </TableUserQueryProvider>
       </Card>
     </main>
