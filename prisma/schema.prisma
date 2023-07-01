@@ -16,7 +16,7 @@ model User {
   name      String?
   email     String? 
   phone     String?
-  service   Services   @default(CHECK_ENGINE_LAMP)
+  service   Services   @default(Check_engine_lampica)
   problem   String?
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
@@ -24,10 +24,10 @@ model User {
 }
 
 enum Services {
-  CLIMA
-  BATERY_SERVICE
-  CHECK_ENGINE_LAMP
-  MAINTAINING
-  OIL_ENGINE
-  ELECTRICITY
+  Klima
+  Servis_akumulatora
+  Check_engine_lampica
+  Odrzavanje
+  Zamjena_ulja
+  Elektrika
 }

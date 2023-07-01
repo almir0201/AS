@@ -29,10 +29,9 @@ function Appointment() {
     resolver: yupResolver(schema),
   });
 
-
   const mapOptions = Object.keys(Services).map((service) => {
     return {
-      label: service.replace(/_/g, " ").toLowerCase(),
+      label: service.replace(/_/g, " "),
       value: service,
     };
   });
@@ -47,7 +46,7 @@ function Appointment() {
     });
 
     if (res.ok) {
-      reset({ 
+      reset({
         email: null,
         name: null,
         phone: null,
@@ -108,6 +107,15 @@ function Appointment() {
                   control={control}
                   render={({ field: { onChange, value, name, ref } }) => (
                     <Select
+                      styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          borderRadius: 0,
+                          height: 48,
+                          backgroundColor: '#f5f5f5',
+                          borderStyle: 'none',
+                        }),
+                      }}
                       instanceId='select'
                       inputRef={ref}
                       value={options.find((c) => c.value === value) ?? null}
@@ -136,7 +144,7 @@ function Appointment() {
           <button className="button" type="submit" disabled={isSubmitting}>
             Zakažite termin
           </button>
-          <p className='mt-5 bold'>Ukoliko unesete netacne podatke zahtjev ce biti ignorisan</p>
+          <p className='mt-5 font-bold'>Ukoliko unesete netačne podatke Vaš zahtjev će biti ignorisan.</p>
         </div>
       </div>
     </form>

@@ -77,7 +77,7 @@ export default function UsersTable({ processed }: { processed: boolean; }) {
                         <Text>{user.phone}</Text>
                       </TableCell>
                       <TableCell className="whitespace-nowrap  px-6 py-4">
-                        <Text>{user.service}</Text>
+                        <Text>{user.service.replace(/_/g, " ").toLowerCase()}</Text>
                       </TableCell>
                       <TableCell className="whitespace-nowrap  px-6 py-4">
                         <Text>{user.problem}</Text>
