@@ -8,8 +8,9 @@ export default function ApprovedAppointment() {
     <Html>
       <Section style={main}>
         <Container style={container}>
-          <Text style={heading}>Postovanje</Text>
-          <Text style={paragraph}>Vas termin je odobren</Text>
+          <Text style={heading}>Poštovanje,</Text>
+          <Text style={paragraph}>Vaš zahtjev je odobren, uskoro očekujte novi email sa terminom za servis Vašeg automobila.</Text>
+          <Text style={paragraph}>Lijep pozdrav</Text>
         </Container>
       </Section>
     </Html>

@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     if (deleteUser.email) {
       sendEmail({
         to: deleteUser.email,
-        subject: "Termin za popravku automobila je odbijen",
+        subject: "Autoelektrika AS - zahtjev za servis",
         html: render(DeclinedAppointment()),
       });
     }
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     if (user.email) {
       sendEmail({
         to: user.email,
-        subject: "Termin za popravku automobila je prihvacen",
+        subject: "Autoelektrika AS - zahtjev za servis",
         html: render(ApprovedAppointment()),
       });
     }

@@ -138,13 +138,13 @@ function Appointment() {
                 "!outline-2 !outline-red-400"
               }
               name="problem"
-              placeholder="Napišite malo više o problemu koji imate sa Vašim autom"
+              placeholder="Napišite malo više o problemu koji imate sa Vašim automobilom"
             ></textarea>
           </div>
           <button className="button" type="submit" disabled={isSubmitting}>
             Zakažite termin
           </button>
-          <p className='mt-5 font-bold'>Ukoliko unesete netačne podatke Vaš zahtjev će biti ignorisan.</p>
+          <p className='mt-5 font-bold'>Nakon poslanog zahtjeva za servis, u vrlo kratkom roku očekujte email sa daljim uputstvima. </p>
         </div>
       </div>
     </form>

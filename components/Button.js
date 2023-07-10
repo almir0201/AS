@@ -4,7 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const handleClick = (isLoggedIn, router) => {
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
   if (!isLoggedIn) {
     router.push('/login')
   } else {

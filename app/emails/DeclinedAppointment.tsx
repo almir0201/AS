@@ -8,8 +8,9 @@ export default function DeclinedAppointment() {
     <Html>
       <Section style={main}>
         <Container style={container}>
-          <Text style={heading}>Postovanje</Text>
-          <Text style={paragraph}>Vas termin je nazalost odbijen</Text>
+          <Text style={heading}>Poštovanje,</Text>
+          <Text style={paragraph}>Vaš zahtjev je odbijen, ukolike imate nekih primjedbi posjetite nas lično.</Text>
+          <Text style={paragraph}>Lijep pozdrav</Text>
         </Container>
       </Section>
     </Html>
