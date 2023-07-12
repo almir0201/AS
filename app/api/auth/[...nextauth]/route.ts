@@ -3,6 +3,8 @@ import type { NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from 'next-auth/providers/github'
 
+const ALLOWED_USERS = ['diskon7@hotmail.com']
+
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
@@ -12,12 +14,32 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: 'login'
+        }
+      }
     }),
     GithubProvider({
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
+      authorization: {
+        params: {
+          prompt: 'login'
+        }
+      }
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      const isAllowedToSignIn = ALLOWED_USERS.includes(user.email ?? '')
+      if (isAllowedToSignIn) {
+        return true
+      } else {
+        return '/unauthorized'
+      }
+    }
+  },
   pages: {
     signIn: '/login',
     signOut: '/',
