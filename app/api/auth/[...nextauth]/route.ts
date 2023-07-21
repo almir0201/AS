@@ -3,7 +3,7 @@ import type { NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from 'next-auth/providers/github'
 
-const ALLOWED_USERS = ['diskon7@hotmail.com']
+const ALLOWED_USERS = ['diskon7@hotmail.com', 'diskon7@gmail.com']
 
 export const authOptions: NextAuthOptions = {
   session: {
