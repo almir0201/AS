@@ -13,8 +13,21 @@ datasource db {
 
 model User {
   id        Int     @id @default(autoincrement())
-  email     String  @unique
-  phone     String
-  service   String
-  problem   String
+  name      String?
+  email     String? 
+  phone     String?
+  service   Services   @default(Check_engine_lampica)
+  problem   String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  processed Boolean    @default(false)
+}
+
+enum Services {
+  Klima
+  Servis_akumulatora
+  Check_engine_lampica
+  Odrzavanje
+  Zamjena_ulja
+  Elektrika
 }

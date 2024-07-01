@@ -10,15 +10,13 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  const session = await getToken({
-    req,
-    secret: process.env.NEXTAUTH_SECRET,
-  });
+  const session = !!req.cookies.get("next-auth.session-token")
 
-  if (!session && path === "/protected") {
+  if (!session && path === "/admin") {
+    console.log(session)
     return NextResponse.redirect(new URL("/login", req.url));
   } else if (session && (path === "/login" || path === "/register")) {
-    return NextResponse.redirect(new URL("/protected", req.url));
+    return NextResponse.redirect(new URL("/admin", req.url));
   }
   return NextResponse.next();
 }

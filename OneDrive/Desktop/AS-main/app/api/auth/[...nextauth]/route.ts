@@ -1,9 +1,9 @@
-import prisma from '@/lib/prisma'
 import NextAuth from 'next-auth'
 import type { NextAuthOptions } from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from 'next-auth/providers/github'
+
+const ALLOWED_USERS = ['diskon7@hotmail.com', 'diskon7@gmail.com']
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -14,12 +14,35 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: 'login'
+        }
+      }
     }),
     GithubProvider({
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
+      authorization: {
+        params: {
+          prompt: 'login'
+        }
+      }
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      const isAllowedToSignIn = ALLOWED_USERS.includes(user.email ?? '')
+      if (isAllowedToSignIn) {
+        return true
+      } else {
+        return '/unauthorized'
+      }
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      return token
+    }
+  },
   pages: {
     signIn: '/login',
     signOut: '/',

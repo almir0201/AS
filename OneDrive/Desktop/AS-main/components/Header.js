@@ -1,6 +1,6 @@
-"use client";
-
+import Link from 'next/link';
 import Button from './Button';
+import Image from 'next/image';
 
 export default function MyComponent() {
   return (
@@ -8,12 +8,12 @@ export default function MyComponent() {
       <div className="container">
         <div className="Header-left">
           <div className="Header-left-logo">
-            <a href="">
-            <img src="/as-logo.jpg"></img>
-            </a>
+            <Link href='/'>
+              <Image src="/as-logo.jpg" alt='logo' priority width={195} height={51} />
+            </Link>
           </div>
         </div>
-        <div className="icon Header-switch" onClick={clickThat}>
+        <div className="icon Header-switch">
           <div className="button-icon Header-switch-icon"></div>
         </div>
         <div className="Header-right">
@@ -34,15 +34,10 @@ export default function MyComponent() {
             </div>
           </div>
           <div className="Header-right-button">
-            <Button text="LOGIN" />
+            <Button/>
           </div>
         </div>
       </div>
     </header>
   );
 };
-
-function clickThat() {
-  var e = document.getElementById('switch');
-  e.classList.toggle('switch');
-}
